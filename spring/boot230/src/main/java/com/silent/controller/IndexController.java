@@ -12,13 +12,21 @@ public class IndexController {
     @Value("${admin:default}")
     private String name;
 
+    @Value("${applicationName:default}")
+    private String applicationName;
+
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return new Date().toString();
     }
 
     @RequestMapping("/name")
-    public String getName(){
+    public String getName() {
         return name;
+    }
+
+    @RequestMapping("/applicationName")
+    public String getApplicationName() {
+        return applicationName;
     }
 }

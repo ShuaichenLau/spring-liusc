@@ -2,3 +2,13 @@ server:
   port: 18080
 
 #admin: liusc
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.0.119:8080/eureka
+spring:
+  application:
+    name: spring-boot230
