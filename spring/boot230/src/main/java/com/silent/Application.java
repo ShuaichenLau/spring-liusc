@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * 2020-4-16 01:55:43
  */
 @Configuration
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @EnableApolloConfig
 @SpringBootApplication
 public class Application {

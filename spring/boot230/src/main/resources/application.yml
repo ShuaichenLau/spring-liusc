@@ -12,3 +12,11 @@ eureka:
 spring:
   application:
     name: spring-boot230
+#  redis:
+#    host: 192.168.0.199
+#    database: 0
+#    port: 6379
+#    password:
+
+
+redisLock : redis_lock
