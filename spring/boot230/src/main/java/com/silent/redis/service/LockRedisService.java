@@ -4,7 +4,6 @@ import com.silent.global.GlobalString;
 import com.silent.redis.LockRedis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.JedisPool;
@@ -36,32 +35,32 @@ public class LockRedisService {
 
     public void seckill() {
         lockRedis = new LockRedis(jedisPool);
-        String identifierValue = lockRedis.getRedisLock(GlobalString.timeOut, GlobalString.timeOut);
+        String identifierValue = lockRedis.getRedisLock(GlobalString.acquireTimeOut, GlobalString.timeOut);
         if (StringUtils.isEmpty(identifierValue)) {
             try {
-                logger.info("com.silent.redis.service.LockRedisService.seckill 获取锁 fail...");
-                Thread.sleep(3000);
+                logger.info("seckill 获取锁 fail..." + Thread.currentThread().getName());
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return;
         }
 
-        logger.info("com.silent.redis.service.LockRedisService.seckill 获取锁 success...");
+        logger.info("seckill 获取锁 success..." + Thread.currentThread().getName());
 
         try {
-            System.out.println("开始 执行业务逻辑");
+            logger.info("start 执行业务逻辑 ThreadName ==> " + Thread.currentThread().getName());
             Thread.sleep(3000);
-            System.out.println("完成 执行业务逻辑");
+            logger.info("end 执行业务逻辑 ThreadName ==> " + Thread.currentThread().getName());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         boolean falg = lockRedis.unRedisLock(identifierValue);
         if (falg) {
-            logger.info("释放锁 success");
+            logger.info("释放锁 success " + Thread.currentThread().getName());
         } else {
-            logger.info("释放锁 fail");
+            logger.info("释放锁 fail " + Thread.currentThread().getName());
         }
 
 

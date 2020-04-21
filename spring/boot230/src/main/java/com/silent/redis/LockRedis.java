@@ -37,10 +37,10 @@ public class LockRedis {
     //基于redis实现分布式锁代码思路 核心方法 获取锁 释放锁
     public String getRedisLock(long acquireTimeOut, long timeOut) {
         Jedis jedis = null;
-
+        String identifierValue = null;
         try {
             jedis = jedispool.getResource();
-            String identifierValue = UUID.randomUUID().toString();
+            identifierValue = UUID.randomUUID().toString();
 
             int expireLock = (int) timeOut; // 以秒为单位
             //定义在获取锁之前的超时时间
@@ -58,13 +58,13 @@ public class LockRedis {
                 }
             }
         } catch (Exception e) {
-            return null;
+            e.printStackTrace();
         } finally {
             if (jedis != null) {
                 jedis.close();
             }
         }
-        return null;
+        return identifierValue;
     }
 
     /**
@@ -90,7 +90,7 @@ public class LockRedis {
             String lockName = GlobalString.redisLockKey;
             if (identifierValue.equals(jedis.get(lockName))) {
                 jedis.del(lockName);
-                log.info("com.silent.redis.LockRedis.unRedisLock  redis锁释放成功");
+                log.info("unRedisLock  redis锁释放成功  ThreadName == >" + Thread.currentThread().getName());
                 flag = true;
             }
 

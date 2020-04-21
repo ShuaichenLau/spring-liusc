@@ -4,7 +4,7 @@ import com.silent.redis.service.LockRedisService;
 
 public class RedisThread extends Thread {
 
-    private static LockRedisService lockRedisService;
+    private LockRedisService lockRedisService;
 
     public RedisThread(LockRedisService lockRedisService) {
         this.lockRedisService = lockRedisService;
