@@ -9,7 +9,7 @@ public interface GlobalString {
     int redisPort = 6379;
     int database = 0;
 
-    long timeOut = 5000;
+    long timeOut = 10000;
     long acquireTimeOut = 10000;
     int maxConnTotal = 200;
     int maxIdle = 8;

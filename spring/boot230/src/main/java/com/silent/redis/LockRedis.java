@@ -19,8 +19,6 @@ public class LockRedis {
 
     private JedisPool jedispool;
 
-
-
     public LockRedis(JedisPool jedispool) {
         this.jedispool = jedispool;
     }
@@ -42,7 +40,7 @@ public class LockRedis {
             jedis = jedispool.getResource();
             identifierValue = UUID.randomUUID().toString();
 
-            int expireLock = (int) timeOut; // 以秒为单位
+            int expireLockTimeOut = (int) timeOut / 1000; // 以秒为单位
             //定义在获取锁之前的超时时间
             //使用循环机制 如果没有获取到锁,要在规定acquireTimeOut时间 保证重复进行尝试获取锁(乐观锁)
 
@@ -51,7 +49,8 @@ public class LockRedis {
                 //获取锁
                 // 使用setnx 命令插入对应的redislockkey 如果返回为1 则获取到锁
                 if (jedis.setnx(GlobalString.redisLockKey, identifierValue) == 1) {
-                    jedis.expire(GlobalString.redisLockKey, expireLock);
+                    // 设置有效期时间
+                    jedis.expire(GlobalString.redisLockKey, expireLockTimeOut);
                     return identifierValue;
                 } else {
                     //获取到锁失败
