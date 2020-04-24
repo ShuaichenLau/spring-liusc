@@ -2,10 +2,16 @@ package com.silent;
 
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+import com.silent.entity.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Configuration;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 搭建Apollo 配置中心
@@ -17,6 +23,7 @@ import org.springframework.context.annotation.Configuration;
 //@EnableAutoConfiguration
 @EnableApolloConfig
 @SpringBootApplication
+
 public class Application {
 
 

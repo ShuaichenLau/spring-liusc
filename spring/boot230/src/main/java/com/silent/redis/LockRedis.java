@@ -54,6 +54,8 @@ public class LockRedis {
                     return identifierValue;
                 } else {
                     //获取到锁失败
+                    //为什么获取锁之后,还要设置锁的超时时间 目的是为了防止死锁
+                    //zk实现分布式锁也需要防止死锁 设置session有效期
                 }
             }
         } catch (Exception e) {

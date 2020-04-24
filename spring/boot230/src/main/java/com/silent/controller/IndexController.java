@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+/**
+ * @author liusc
+ */
 @RestController
 public class IndexController {
 
@@ -27,6 +30,18 @@ public class IndexController {
 
     @RequestMapping("/applicationName")
     public String getApplicationName() {
+        long l = System.nanoTime();
+        System.out.println(l);
         return applicationName;
+    }
+
+
+    public static void main(String[] args) {
+
+
+        System.out.println(System.nanoTime());
+        System.out.println(System.currentTimeMillis());
+        System.out.println(new Date(System.nanoTime()));
+        System.out.println(new Date(System.currentTimeMillis()));
     }
 }
