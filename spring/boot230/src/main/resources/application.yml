@@ -8,11 +8,16 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.0.119:8080/eureka
+      defaultZone: http://192.168.0.103:8080/eureka
 #因为该应用为注册中心，不会注册自己
     register-with-eureka: true
 #是否需要从eureka上获取注册信息
     fetch-registry: true
+  instance:
+#    eureka服务端在收到最后一次心跳之后等待时间的上限 单位为秒 超过剔除
+    lease-expiration-duration-in-seconds: 60
+#    Eureka客户端向服务端发送心跳包的时间间隔 单位为秒
+    lease-renewal-interval-in-seconds: 10
 
 
 spring:

@@ -3,7 +3,7 @@ package com.silent.global;
 public interface GlobalString {
 
     String redisLockKey = "redis_lock";
-    String redisHost = "192.168.0.119";
+    String redisHost = "192.168.0.103";
     // String redisHost = "127.0.0.1";
     String password = "";
     int redisPort = 6379;

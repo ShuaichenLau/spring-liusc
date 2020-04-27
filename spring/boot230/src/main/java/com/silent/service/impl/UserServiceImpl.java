@@ -3,6 +3,9 @@ package com.silent.service.impl;
 import com.silent.service.IUserService;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -12,8 +15,9 @@ public class UserServiceImpl implements IUserService {
             return false;
         }
         // 定义判别用户身份证号的正则表达式（15位或者18位，最后一位可以为字母）
-        String regularExpression = "(^[1-9]\\d{5}(18|19|20)\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|" +
-                "(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}$)";
+        String regularExpression = "(^[1-9]\\d{5}(18|19|20)\\d{2}((0[1-9])|(10|11|12))" +
+                "(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|(^[1-9]\\d{5}\\d{2}((0[1-9])" +
+                "|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}$)";
         //假设18位身份证号码:41000119910101123X  410001 19910101 123X
         //^开头
         //[1-9] 第一位1-9中的一个      4
@@ -73,6 +77,35 @@ public class UserServiceImpl implements IUserService {
 
         }
         return matches;
+    }
+
+
+    public static boolean checkcountname(String countname)
+    {
+        Pattern pattern = Pattern.compile("[\u4e00-\u9fa5]");
+        Matcher m = pattern.matcher(countname);
+        if (m.find()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        /**
+         * 判断是否有中文
+         *
+         * 有中文 直接原逻辑查询
+         *
+         * 判断没有中文 检查是否为身份证
+         *
+         * 是身份证 为身份证查询  否则为原逻辑查询
+         *
+         */
+
+
+        boolean checkcountname = checkcountname("ab1111c");
+        System.out.println(checkcountname);
     }
 
 }
