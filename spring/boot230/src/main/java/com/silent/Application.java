@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 //@EnableAutoConfiguration
 @EnableApolloConfig
 @SpringBootApplication
+@EnableEurekaClient
 //@EnableEurekaServer
 public class Application {
 
