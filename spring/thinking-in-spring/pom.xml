@@ -9,17 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-
     <artifactId>thinking-in-spring</artifactId>
-
 
     <properties>
         <spring.version>5.1.10.RELEASE</spring.version>
     </properties>
 
-
     <dependencyManagement>
-
         <dependencies>
             <dependency>
                 <groupId>org.springframework</groupId>
