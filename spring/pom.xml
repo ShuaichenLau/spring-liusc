@@ -11,7 +11,7 @@
         <module>thinking-in-spring</module>
         <module>boot230</module>
         <module>springBootSwagger</module>
-        <module>SpringBoot-dubbo</module>
+        <module>itmayiedu-dubbo-parent</module>
     </modules>
     <packaging>pom</packaging>
 

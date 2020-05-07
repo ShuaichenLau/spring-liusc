@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringBoot-dubbo</artifactId>
+    <artifactId>itmayiedu-dubbo-parent</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>itmayiedu-dubbo-api-member-impl</module>
