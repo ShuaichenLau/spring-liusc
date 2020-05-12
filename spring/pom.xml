@@ -12,6 +12,7 @@
         <module>boot230</module>
         <module>springBootSwagger</module>
         <module>itmayiedu-dubbo-parent</module>
+        <module>SpringBoot-MQ</module>
     </modules>
     <packaging>pom</packaging>
 
