@@ -1,0 +1,27 @@
+server:
+  port: 18080
+
+
+
+URL: wss://test-video-rs02.wenzaizhibo.com/agent:295
+CLASS_ID: 6005130266697610
+
+
+user:
+  number: user_number
+  group: 3603833
+  type: 0
+  nameStr: student
+  actual_name:  student
+  avatar: https://test-i.gsxcdn.com/1735255_p4p15q30.png
+  status: 0
+  end_type: end_type
+  version: 7.4.8
+
+#线程数量
+extThreadNum: 10
+
+tio:
+  websocket:
+    server:
+      port: 8989
