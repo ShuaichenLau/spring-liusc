@@ -13,6 +13,8 @@
         <module>springBootSwagger</module>
         <module>itmayiedu-dubbo-parent</module>
         <module>SpringBoot-MQ</module>
+        <module>rabbitmq_consumer_springboot</module>
+        <module>rabbitmq_producer_springboot</module>
     </modules>
     <packaging>pom</packaging>
 
