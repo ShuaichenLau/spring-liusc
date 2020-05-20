@@ -12,6 +12,8 @@
         <module>SpringBoot-p2p-producer</module>
         <module>SpringBoot-Consumer</module>
         <module>SpringMQ-queue</module>
+        <module>springBoot-mq-producer</module>
+        <module>StringBoot-mq-consumer</module>
     </modules>
 
 

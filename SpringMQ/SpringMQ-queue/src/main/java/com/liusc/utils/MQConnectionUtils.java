@@ -15,7 +15,7 @@ public class MQConnectionUtils {
         // 3.设置协议端口号
         factory.setPort(5672);
         // 4.设置vhost
-        factory.setVirtualHost("/test001_host");
+        factory.setVirtualHost("/test_host");
         // 5.设置用户名称
         factory.setUsername("test");
         // 6.设置用户密码
